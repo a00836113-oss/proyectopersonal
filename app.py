@@ -274,7 +274,7 @@ kpi4.metric("Longitud media (palabras)", f"{avg_words:.1f}")
 st.write("") 
 
 #TABS
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab1, tab2, tab3, tab5, tab4 = st.tabs([
     "📊 Distribución por tipo",
     "📈 Evolución temporal",
     "📚 Longitud del texto",
@@ -388,4 +388,5 @@ with tab5:
         fig = apply_layout(fig, "Polaridad por tipo de noticia")
 
         st.plotly_chart(fig, use_container_width=True)
+
 
