@@ -241,7 +241,7 @@ st.markdown(
     <div class="hero-card">
         <div class="hero-left">
             <div class="hero-title">
-                Dashboards for Fake vs Real News
+                Dashboards para Fake vs Real News
             </div>
             <div class="hero-subtitle">
                 Explora la distribución, evolución temporal y características de las noticias 
@@ -388,3 +388,4 @@ with tab5:
 
     st.dataframe(df[cols].head(200), use_container_width=True)
     st.caption("Mostrando solo 200 registros.")
+
