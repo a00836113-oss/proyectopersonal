@@ -278,8 +278,8 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📊 Distribución por tipo",
     "📈 Evolución temporal",
     "📚 Longitud del texto",
-    "🎭 Polaridad del sentimiento",
-    "📄 Dataset"
+    "📄 Dataset",
+    "🎭 Polaridad del sentimiento"
 ])
 
 #DISTRIBUCIÓN(TAB 1)
@@ -361,8 +361,18 @@ with tab3:
 
     st.plotly_chart(fig, use_container_width=True)
 
-#POLARIDAD(TAB 4)
+
+#DATASET(TAB 4)
 with tab4:
+    st.subheader("Vista del dataset")
+
+    cols = ["date", "label_name", "subject", "title", "text_word_len"]
+    cols = [c for c in cols if c in df.columns]
+
+    st.dataframe(df[cols].head(200), use_container_width=True)
+    st.caption("Mostrando solo 200 registros.")
+#POLARIDAD(TAB 5)
+with tab5:
     st.subheader("Polaridad del sentimiento")
 
     if "polarity" not in df.columns:
@@ -378,14 +388,4 @@ with tab4:
         fig = apply_layout(fig, "Polaridad por tipo de noticia")
 
         st.plotly_chart(fig, use_container_width=True)
-
-#DATASET(TAB 5)
-with tab5:
-    st.subheader("Vista del dataset")
-
-    cols = ["date", "label_name", "subject", "title", "text_word_len"]
-    cols = [c for c in cols if c in df.columns]
-
-    st.dataframe(df[cols].head(200), use_container_width=True)
-    st.caption("Mostrando solo 200 registros.")
 
